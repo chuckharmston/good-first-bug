@@ -7,29 +7,62 @@ import {
 
 import { skills, tag, repos } from './config';
 
-const repoMap = repos.reduce((accum, repo) => {
+// An object allowing lookups of repos by org/name slug.
+export const REPO_MAP = repos.reduce((accum, repo) => {
   accum[repo.repo] = repo;
   return accum;
 }, {});
 
-const getRepo = repoUrl => {
-  return repoMap[repoUrl.replace('https://api.github.com/repos/', '')];
-};
-
-const skillMap = skills.reduce((accum, skill) => {
+// An object allowing lookups of skills by tag name.
+export const SKILL_MAP = skills.reduce((accum, skill) => {
   accum[skill.tag] = skill;
   return accum;
 }, {});
 
-const getSkill = label => skillMap[label.name];
+// Passed a string representing a repository's GitHub API URL, returns an object
+// representing it.
+const getRepo = repoUrl => {
+  return REPO_MAP[repoUrl.replace('https://api.github.com/repos/', '')];
+};
 
+// Passed an array of issues, returns an object mapping slug to object for each
+// repo represented in those issues.
+const getActiveRepos = issues =>
+  issues.reduce((accum, issue) => {
+    const { repo } = issue.repo;
+    if (!Object.keys(accum).includes(repo)) {
+      accum[repo] = getRepo(repo);
+    }
+    return accum;
+  }, {});
+
+// Passed a skill's name, returns an object representing it.
+const getSkill = labelName => SKILL_MAP[labelName];
+
+// Passed an array of issues, returns an object mapping slugs to object for each
+// skill represented in those issues.
 const getSkills = labels =>
   labels.reduce((accum, label) => {
-    if (Object.keys(skillMap).includes(label.name)) {
-      accum.push(getSkill(label));
+    if (Object.keys(SKILL_MAP).includes(label.name)) {
+      accum.push(getSkill(label.name));
     }
     return accum;
   }, []);
+
+// Passed an array of issues, returns an object mapping slug to object for each
+// skill represented in those issues.
+const getActiveSkills = issues =>
+  issues.reduce((accum, issue) => {
+    if (issue.skills.length) {
+      issue.skills.forEach(skill => {
+        const { tag } = skill;
+        if (!Object.keys(accum).includes(tag)) {
+          accum[tag] = getSkill(tag);
+        }
+      });
+    }
+    return accum;
+  }, {});
 
 export default class GitHub {
   static reduceIssue = issue => ({
@@ -48,12 +81,13 @@ export default class GitHub {
     }, '');
   };
 
+  static query = encodeURIComponent(
+    `label:"${tag}" state:open type:issue ${GitHub.repoList()}`
+  );
+
   static createRequest = url => {
     if (url === null) {
-      const query = encodeURIComponent(
-        `label:"${tag}" state:open type:issue ${GitHub.repoList()}`
-      );
-      url = `https://api.github.com/search/issues?q=${query}&per_page=100`;
+      url = `https://api.github.com/search/issues?q=${GitHub.query}&per_page=100`;
     }
     const opts = {
       headers: new Headers({
@@ -130,8 +164,14 @@ export default class GitHub {
     switch (action.type) {
       case actionTypes.TASKS_FETCH:
         GitHub.makeRequest()
-          .then(data => {
-            store.dispatch(actions.completeTasks(data));
+          .then(issues => {
+            store.dispatch(
+              actions.completeTasks({
+                data: issues,
+                skills: getActiveSkills(issues),
+                repos: getActiveRepos(issues)
+              })
+            );
           })
           .catch(err => {
             console.log(err);

@@ -19,7 +19,6 @@ export default class TaskList extends Component {
 
   render() {
     const { tasks } = this.props;
-    console.log(tasks);
     if (tasks.length) {
       return (
         <ol className="task-list">

@@ -5,7 +5,9 @@ import {
 
 const initialState = {
   status: status.INIT,
-  data: []
+  data: [],
+  repos: [],
+  skills: []
 };
 
 export default (state = initialState, action) => {
@@ -14,10 +16,7 @@ export default (state = initialState, action) => {
       return Object.assign({}, { status: status.PENDING });
 
     case actionTypes.TASKS_COMPLETE:
-      return Object.assign(
-        {},
-        { status: status.COMPLETE, data: action.payload }
-      );
+      return Object.assign({}, action.payload, { status: status.COMPLETE });
 
     case actionTypes.TASKS_ERROR:
       return Object.assign({}, { status: status.ERROR });

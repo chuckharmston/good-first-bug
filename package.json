@@ -9,6 +9,7 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "github-api": "^3.0.0",
+    "history": "^4.6.1",
     "prop-types": "^15.5.8",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
@@ -17,7 +18,8 @@
     "react-router-dom": "^4.1.1",
     "react-router-redux": "next",
     "redux": "^3.6.0",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "urijs": "^1.18.10"
   },
   "devDependencies": {
     "@kadira/storybook": "^2.21.0",

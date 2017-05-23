@@ -15,6 +15,7 @@ function loadStories() {
     'intro',
     'label',
     'label-list',
+    'loading',
     'project-intro',
     'skill-intro',
     'task',

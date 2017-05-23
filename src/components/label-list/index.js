@@ -22,7 +22,13 @@ export default class LabelList extends Component {
 
   renderRepo() {
     const { colors, name } = this.props.repo;
-    return <Label prefix="Project" name={name} color={colors[0]} />;
+    return (
+      <Label
+        prefix="Project"
+        name={name}
+        color={colors.length ? colors[0] : '0, 0, 0'}
+      />
+    );
   }
 
   render() {
