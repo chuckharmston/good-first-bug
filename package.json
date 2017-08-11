@@ -5,7 +5,7 @@
   "author": "Mozilla (https://mozilla.org/)",
   "homepage": "https://contribute.testpilot.firefox.com",
   "license": "MPL-2.0",
-  "private": "true",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chuckharmston/testpilot-contribute.git"
@@ -17,8 +17,8 @@
     "node": "7.8.x",
     "npm": "4.2.x"
   },
-  "private": true,
   "dependencies": {
+    "@storybook/storybook-deployer": "^2.0.0",
     "classnames": "^2.2.5",
     "github-api": "^3.0.0",
     "prop-types": "^15.5.8",
@@ -51,6 +51,7 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
+    "deploy-storybook": "storybook-to-ghpages",
     "build-css": "node-sass src/ -o src/",
     "watch-css": "npm run build-css && node-sass src/ -o src/ --watch --recursive",
     "precommit": "lint-staged",
