@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="38px" height="37px" viewBox="0 0 38 37" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45.2 (43514) - http://www.bohemiancoding.com/sketch -->
+    <title>Slice</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon_contribute" transform="translate(1.000000, 3.000000)" stroke="#FFFFFF">
+            <rect id="Rectangle-6" stroke-width="3" x="1.5" y="1.5" width="33" height="28.2" rx="4"></rect>
+            <path d="M1.5,8 L34.5,8" id="Line" stroke-width="2" stroke-linecap="square"></path>
+            <g id="&lt;/&gt;" transform="translate(8.000000, 13.000000)" stroke-width="2.22222222" stroke-linecap="round" stroke-linejoin="round">
+                <g id="Group-15" transform="translate(0.000000, 3.272727)">
+                    <path d="M5.25608106,0.789130686 L0.331043967,2.7984916" id="Line-4"></path>
+                    <path d="M5.25883045,5.16439459 L0.447652216,2.85818182" id="Line-4"></path>
+                </g>
+                <g id="Group-15" transform="translate(17.000000, 6.272727) scale(-1, 1) translate(-17.000000, -6.272727) translate(14.000000, 3.272727)">
+                    <path d="M5.25608106,0.789130686 L0.331043967,2.7984916" id="Line-4"></path>
+                    <path d="M5.25883045,5.16439459 L0.447652216,2.90471739" id="Line-4"></path>
+                </g>
+                <path d="M11.3555556,0.49166904 L8.37777778,11.5171676" id="Line-5"></path>
+            </g>
+        </g>
+    </g>
+</svg>
