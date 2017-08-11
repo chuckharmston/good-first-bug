@@ -70,7 +70,7 @@ export default class GitHub {
 
   static makeQuery = () => {
     return `label:"${tag}" state:open type:issue ${GitHub.repoList()}`;
-  }
+  };
 
   static createRequest = url => {
     if (url === null) {

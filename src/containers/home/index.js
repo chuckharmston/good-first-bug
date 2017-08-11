@@ -12,7 +12,13 @@ import './index.css';
 
 export class Home extends Component {
   render() {
-    const { availableRepos, availableSkills, changeRepo, changeSkill, history } = this.props;
+    const {
+      availableRepos,
+      availableSkills,
+      changeRepo,
+      changeSkill,
+      history
+    } = this.props;
     return (
       <div className="home--view">
         <Header>

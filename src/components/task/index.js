@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import LabelList from '../label-list';
+import LabelList from '../labels';
 import './index.css';
 
 export default class Task extends Component {
@@ -10,13 +10,13 @@ export default class Task extends Component {
     number: PropTypes.number.isRequired,
     url: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    labels: PropTypes.arrayOf(PropTypes.object),
+    skills: PropTypes.arrayOf(PropTypes.object),
     assignee: PropTypes.object,
     repo: PropTypes.object
   };
 
   static defaultProps = {
-    labels: [],
+    skills: [],
     assignee: null,
     repo: null
   };
@@ -24,7 +24,9 @@ export default class Task extends Component {
   renderAssignee() {
     const assignee = this.props.assignee ? this.props.assignee.login : 'nobody';
     return (
-      <div className="issue--assignee">Assigned to <strong>{assignee}</strong></div>
+      <div className="issue--assignee">
+        Assigned to <strong>{assignee}</strong>
+      </div>
     );
   }
 

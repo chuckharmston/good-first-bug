@@ -31,7 +31,9 @@ export default class App extends Component {
               const Component = require(`../docs-page/content/${doc.slug}`)
                 .default;
               const path = `/docs/${doc.slug}/`;
-              return <Route exact path={path} component={Component} key={index} />;
+              return (
+                <Route exact path={path} component={Component} key={index} />
+              );
             })}
           </div>
         )}

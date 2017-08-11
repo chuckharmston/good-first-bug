@@ -42,10 +42,7 @@ export class ProjectIntroItem extends Component {
   render() {
     const { description, name } = this.props;
     return (
-      <li
-        className="project-intro--item"
-        style={this.styles()}
-      >
+      <li className="project-intro--item" style={this.styles()}>
         <a href="/tasks" onClick={evt => this.handleClick(evt)}>
           <header>
             <h3>{name}</h3>
@@ -66,7 +63,7 @@ export default class ProjectIntro extends Component {
   };
 
   static defaultProps = {
-    repos: []
+    repos: null
   };
 
   renderWrapper(elem) {
@@ -84,8 +81,10 @@ export default class ProjectIntro extends Component {
 
   render() {
     const { changeRepo, changeSkill, history, repos } = this.props;
-    if (!repos.length) {
+    if (repos === null) {
       return this.renderLoading();
+    } else if (!repos.length) {
+      return null;
     }
     return this.renderWrapper(
       <ul>

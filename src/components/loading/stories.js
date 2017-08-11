@@ -6,5 +6,5 @@ import { wrapper } from '../wrapper/decorator';
 import Loading from './index';
 
 storiesOf('Loading', module)
-  .addDecorator(wrapper('blue'))
+  .addDecorator(wrapper('dark'))
   .add('default', () => <Loading />);

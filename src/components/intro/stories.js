@@ -5,6 +5,6 @@ import { wrapper } from '../wrapper/decorator';
 
 import Intro from './index';
 
-storiesOf('Intro', module)
-  .addDecorator(wrapper('blue'))
-  .add('default', () => <Intro />);
+storiesOf('Introduction', module)
+  .addDecorator(wrapper('dark'))
+  .add('Introduction', () => <Intro />);

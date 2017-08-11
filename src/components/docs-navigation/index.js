@@ -52,7 +52,11 @@ export default class DocsNavigation extends Component {
     return (
       <nav className="docs-navigation">
         <ul>
-          <DocsNavigationItem className="docs-navigation--back" to="/" text="Back" />
+          <DocsNavigationItem
+            className="docs-navigation--back"
+            to="/"
+            text="Back"
+          />
           {docs.map((doc, idx) => this.renderNavItem(doc, idx))}
         </ul>
         <Button to="/tasks/" text="Find a Task" />

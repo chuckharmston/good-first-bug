@@ -54,9 +54,17 @@ export default class DocsPage extends Component {
   renderNotice() {
     return (
       <aside className="docs-page--notice">
-        The content of this site is itself based on a series of open-source guides available at <a href="https://opensource.guide">opensource.guide</a>. It is available under the <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0 license</a>, and has been modified to fit this format.
+        The content of this site is itself based on a series of open-source guides available at
+        {' '}
+        <a href="https://opensource.guide">opensource.guide</a>
+        . It is available under the
+        {' '}
+        <a href="https://creativecommons.org/licenses/by/4.0/">
+          CC-BY-4.0 license
+        </a>
+        , and has been modified to fit this format.
       </aside>
-    )
+    );
   }
 
   render() {

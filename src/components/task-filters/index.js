@@ -87,9 +87,7 @@ export default class TaskFilters extends Component {
   }
 
   renderBackButton() {
-    return (
-      <Link to="/" className="task-filters--back">Back</Link>
-    );
+    return <Link to="/" className="task-filters--back">Back</Link>;
   }
 
   renderResetButton() {
