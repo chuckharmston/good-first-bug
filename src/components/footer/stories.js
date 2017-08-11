@@ -6,5 +6,5 @@ import { wrapper } from '../wrapper/decorator';
 import Footer from './index';
 
 storiesOf('Footer', module)
-  .addDecorator(wrapper('blue'))
-  .add('default', () => <Footer />);
+  .addDecorator(wrapper('dark'))
+  .add('Footer', () => <Footer />);

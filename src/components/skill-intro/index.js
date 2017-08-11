@@ -54,7 +54,7 @@ export default class SkillIntro extends Component {
   };
 
   static defaultProps = {
-    skills: []
+    skills: null
   };
 
   renderWrapper(elem) {
@@ -72,8 +72,10 @@ export default class SkillIntro extends Component {
 
   render() {
     const { changeRepo, changeSkill, history, skills } = this.props;
-    if (!skills.length) {
+    if (skills === null) {
       return this.renderLoading();
+    } else if (!skills.length) {
+      return null;
     }
     return this.renderWrapper(
       <ul>

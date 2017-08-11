@@ -1,9 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@kadira/storybook';
 
-import { repos } from '../../config.json';
+import { repos, skills } from '../../config.json';
 import Task from './index';
-import { labelFactory } from '../label/stories';
+import { labelFactory } from '../labels/stories';
+import { wrapper } from '../wrapper/decorator';
 
 export const taskProps = (overrides = {}) =>
   Object.assign(
@@ -13,24 +14,67 @@ export const taskProps = (overrides = {}) =>
       number: 123,
       url: 'https://github.com/mozilla/testpilot/tasks/1',
       title: 'Setup Sugardough Base',
-      labels: labelFactory(3),
       assignee: {
         login: 'lmorchard',
         html_url: 'https://github.com/lmorchard'
       },
+      skills: skills.slice(0, 2),
       repo: repos[0]
     },
     overrides
   );
 
-export const taskFactory = n =>
-  [...Array(n).keys()].map(key => ({
-    values: () =>
-      taskProps({
-        key: key,
-        id: key,
-        title: `This is task #${key + 1}`
-      })
-  }));
+export const taskFactory = n => {
+  return [...Array(n).keys()].map(key => {
+    return taskProps({
+      key: key,
+      id: key,
+      title: `This is task #${key + 1}`
+    });
+  });
+};
 
-storiesOf('Task', module).add('default', () => <Task {...taskProps()} />);
+storiesOf('Task', module)
+  .addDecorator(wrapper('dark'))
+  .add('With all information', () => (
+    <ol className="task-list">
+      <Task {...taskProps()} />
+    </ol>
+  ))
+  .add('With no assignee', () => (
+    <ol className="task-list">
+      <Task
+        {...taskProps({
+          assignee: null
+        })}
+      />
+    </ol>
+  ))
+  .add('With no repo', () => (
+    <ol className="task-list">
+      <Task
+        {...taskProps({
+          repo: null
+        })}
+      />
+    </ol>
+  ))
+  .add('With no skills', () => (
+    <ol className="task-list">
+      <Task
+        {...taskProps({
+          skills: []
+        })}
+      />
+    </ol>
+  ))
+  .add('With no labels', () => (
+    <ol className="task-list">
+      <Task
+        {...taskProps({
+          skills: [],
+          repo: null
+        })}
+      />
+    </ol>
+  ));

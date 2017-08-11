@@ -9,7 +9,9 @@ import DocsNavigation from './index';
 
 const factory = slug => <DocsNavigation currentPath={`/docs/${slug}/`} />;
 
-const stories = storiesOf('DocsNavigation', module).addDecorator(wrapper());
+const stories = storiesOf('Documentation navigation', module).addDecorator(
+  wrapper('dark')
+);
 docs.forEach(doc => {
   stories.add(doc.title, () => factory(doc.slug));
 });

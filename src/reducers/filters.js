@@ -1,6 +1,4 @@
-import {
-  filterActionTypes as actionTypes
-} from '../actions/filters';
+import { filterActionTypes as actionTypes } from '../actions/filters';
 
 const initialState = {
   available: {

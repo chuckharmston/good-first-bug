@@ -12,7 +12,7 @@ import filteredTasks from '../../selectors/filters';
 
 import './index.css';
 
-class Tasks extends Component {
+export class Tasks extends Component {
   renderWrapper(elem) {
     return (
       <div>
@@ -25,13 +25,7 @@ class Tasks extends Component {
   }
 
   renderFilters() {
-    const {
-      changeRepo,
-      changeSkill,
-      filters,
-      repos,
-      skills
-    } = this.props;
+    const { changeRepo, changeSkill, filters, repos, skills } = this.props;
     return (
       <TaskFilters
         available={{ repos, skills }}
@@ -61,8 +55,10 @@ class Tasks extends Component {
         {this.renderFilters()}
         <p className="tasks--error">
           There was an error fetching the list of tasks from GitHub; you were
-          most likely rate-limited. Try <a href={this.getManualUrl()}>looking
-          them up manually</a>?
+          most likely rate-limited. Try <a href={this.getManualUrl()}>
+            looking
+            them up manually
+          </a>?
         </p>
       </div>
     );

@@ -6,13 +6,13 @@ import { wrapper } from '../wrapper/decorator';
 
 import SkillIntro, { SkillIntroItem } from './index';
 
-const itemStories = storiesOf('Skill Intro Items', module).addDecorator(
-  wrapper('blue')
-);
-skills.forEach(skill => {
-  itemStories.add(skill.name, () => <SkillIntroItem {...skill} />);
-});
+const stories = storiesOf('Tasks by skill', module)
+  .addDecorator(wrapper('dark'))
+  .add('Full list', () => <SkillIntro skills={skills} />)
+  .add('No items', () => <SkillIntro skills={[]} />)
+  .add('Only one item', () => <SkillIntro skills={skills.slice(0, 1)} />)
+  .add('Only two items', () => <SkillIntro skills={skills.slice(0, 2)} />);
 
-const stories = storiesOf('Skill Intro', module)
-  .addDecorator(wrapper('blue'))
-  .add('default', () => <SkillIntro skills={skills} />);
+skills.forEach(skill => {
+  stories.add(`Item: ${skill.name}`, () => <SkillIntroItem {...skill} />);
+});

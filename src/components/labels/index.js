@@ -1,8 +1,19 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Label from '../label';
 import './index.css';
+
+export class Label extends Component {
+  static propTypes = {
+    className: PropTypes.string.isRequired,
+    name: PropTypes.string
+  };
+
+  render() {
+    const { className, name } = this.props;
+    return <span className={`label label--${className}`}>{name}</span>;
+  }
+}
 
 export default class LabelList extends Component {
   static propTypes = {
@@ -12,10 +23,13 @@ export default class LabelList extends Component {
 
   static defaultProps = {
     labels: [],
-    repo: {}
+    repo: null
   };
 
   renderRepo() {
+    if (!this.props.repo) {
+      return null;
+    }
     const { name, repo } = this.props.repo;
     return <Label key={repo} className="project" name={name} />;
   }
