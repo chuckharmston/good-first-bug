@@ -26,3 +26,11 @@ To run the [Storybook](https://storybook.js.org) server simultaneously:
 ```
 npm run storybook
 ```
+
+To view the current Storybook: [https://chuckharmston.github.io/testpilot-contribute](https://chuckharmston.github.io/testpilot-contribute).
+
+To update the deployed Storybook:
+
+```
+npm run deploy-storybook
+```
