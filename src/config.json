@@ -86,16 +86,6 @@
       "thumbnail": "snooze-tabs.png"
     },
     {
-      "name": "Containers",
-      "repo": "mozilla/testpilot-containers",
-      "description": "Contain yourselves! Create different containers for each of your online lives - your work self, your social self, your personal self - to stay organized and maintain privacy.",
-      "colors": [
-        "6, 156, 214",
-        "108, 65, 159"
-      ],
-      "thumbnail": "containers.png"
-    },
-    {
       "name": "Screenshots",
       "repo": "mozilla-services/screenshots",
       "description": "Intuitive screenshots baked right into the browser. Capture, save and share screenshots as you browse the Web using Firefox.",
@@ -104,16 +94,6 @@
         "3, 82, 149"
       ],
       "thumbnail": "screenshots.png"
-    },
-    {
-      "name": "Activity Stream",
-      "repo": "mozilla/activity-stream",
-      "description": "A rich visual history feed and a reimagined home page make it easier than ever to find exactly what you're looking for in Firefox.",
-      "colors": [
-        "9, 150, 248",
-        "6, 117, 211"
-      ],
-      "thumbnail": "activity-stream.png"
     },
     {
       "name": "Min Vid",
