@@ -36,7 +36,7 @@ export class Width extends Component {
   }
 
   render() {
-    const { chidlren } = this.props;
+    const { children } = this.props;
     return (
       <div style={this.getStyle()}>
         {children}
